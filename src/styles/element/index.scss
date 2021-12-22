@@ -1,0 +1,303 @@
+/* 定义初始颜色
+------------------------------- */
+$--el-color-primary: #409eff !default;
+$--el-color-whites: #ffffff !default;
+$--el-color-primary-light-1: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  10%
+) !default;
+$--el-color-primary-light-2: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  20%
+) !default;
+$--el-color-primary-light-3: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  30%
+) !default;
+$--el-color-primary-light-4: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  40%
+) !default;
+$--el-color-primary-light-5: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  50%
+) !default;
+$--el-color-primary-light-6: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  60%
+) !default;
+$--el-color-primary-light-7: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  70%
+) !default;
+$--el-color-primary-light-8: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  80%
+) !default;
+$--el-color-primary-light-9: mix(
+  $--el-color-whites,
+  $--el-color-primary,
+  90%
+) !default;
+$--el-color-success: #67c23a !default;
+$--el-color-success-light-1: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  10%
+) !default;
+$--el-color-success-light-2: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  20%
+) !default;
+$--el-color-success-light-3: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  30%
+) !default;
+$--el-color-success-light-4: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  40%
+) !default;
+$--el-color-success-light-5: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  50%
+) !default;
+$--el-color-success-light-6: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  60%
+) !default;
+$--el-color-success-light-7: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  70%
+) !default;
+$--el-color-success-light-8: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  80%
+) !default;
+$--el-color-success-light-9: mix(
+  $--el-color-whites,
+  $--el-color-success,
+  90%
+) !default;
+$--el-color-info: #909399 !default;
+$--el-color-info-light-1: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  10%
+) !default;
+$--el-color-info-light-2: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  20%
+) !default;
+$--el-color-info-light-3: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  30%
+) !default;
+$--el-color-info-light-4: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  40%
+) !default;
+$--el-color-info-light-5: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  50%
+) !default;
+$--el-color-info-light-6: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  60%
+) !default;
+$--el-color-info-light-7: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  70%
+) !default;
+$--el-color-info-light-8: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  80%
+) !default;
+$--el-color-info-light-9: mix(
+  $--el-color-whites,
+  $--el-color-info,
+  90%
+) !default;
+$--el-color-warning: #e6a23c !default;
+$--el-color-warning-light-1: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  10%
+) !default;
+$--el-color-warning-light-2: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  20%
+) !default;
+$--el-color-warning-light-3: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  30%
+) !default;
+$--el-color-warning-light-4: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  40%
+) !default;
+$--el-color-warning-light-5: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  50%
+) !default;
+$--el-color-warning-light-6: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  60%
+) !default;
+$--el-color-warning-light-7: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  70%
+) !default;
+$--el-color-warning-light-8: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  80%
+) !default;
+$--el-color-warning-light-9: mix(
+  $--el-color-whites,
+  $--el-color-warning,
+  90%
+) !default;
+$--el-color-danger: #f56c6c !default;
+$--el-color-danger-light-1: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  10%
+) !default;
+$--el-color-danger-light-2: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  20%
+) !default;
+$--el-color-danger-light-3: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  30%
+) !default;
+$--el-color-danger-light-4: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  40%
+) !default;
+$--el-color-danger-light-5: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  50%
+) !default;
+$--el-color-danger-light-6: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  60%
+) !default;
+$--el-color-danger-light-7: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  70%
+) !default;
+$--el-color-danger-light-8: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  80%
+) !default;
+$--el-color-danger-light-9: mix(
+  $--el-color-whites,
+  $--el-color-danger,
+  90%
+) !default;
+$--bg-topBar: #ffffff;
+$--bg-menuBar: #545c64;
+$--bg-columnsMenuBar: #545c64;
+$--bg-topBarColor: #606266;
+$--bg-menuBarColor: #eaeaea;
+$--bg-columnsMenuBarColor: #e6e6e6;
+$--box-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.1);
+
+/* 赋值给:root
+------------------------------- */
+:root {
+  --el-color-primary: #{$--el-color-primary};
+  --el-color-whites: #{$--el-color-whites};
+  --el-color-primary-light-1: #{$--el-color-primary-light-1};
+  --el-color-primary-light-2: #{$--el-color-primary-light-2};
+  --el-color-primary-light-3: #{$--el-color-primary-light-3};
+  --el-color-primary-light-4: #{$--el-color-primary-light-4};
+  --el-color-primary-light-5: #{$--el-color-primary-light-5};
+  --el-color-primary-light-6: #{$--el-color-primary-light-6};
+  --el-color-primary-light-7: #{$--el-color-primary-light-7};
+  --el-color-primary-light-8: #{$--el-color-primary-light-8};
+  --el-color-primary-light-9: #{$--el-color-primary-light-9};
+  --el-color-success: #{$--el-color-success};
+  --el-color-success-light-1: #{$--el-color-success-light-1};
+  --el-color-success-light-2: #{$--el-color-success-light-2};
+  --el-color-success-light-3: #{$--el-color-success-light-3};
+  --el-color-success-light-4: #{$--el-color-success-light-4};
+  --el-color-success-light-5: #{$--el-color-success-light-5};
+  --el-color-success-light-6: #{$--el-color-success-light-6};
+  --el-color-success-light-7: #{$--el-color-success-light-7};
+  --el-color-success-light-8: #{$--el-color-success-light-8};
+  --el-color-success-light-9: #{$--el-color-success-light-9};
+  --el-color-info: #{$--el-color-info};
+  --el-color-info-light-1: #{$--el-color-info-light-1};
+  --el-color-info-light-2: #{$--el-color-info-light-2};
+  --el-color-info-light-3: #{$--el-color-info-light-3};
+  --el-color-info-light-4: #{$--el-color-info-light-4};
+  --el-color-info-light-5: #{$--el-color-info-light-5};
+  --el-color-info-light-6: #{$--el-color-info-light-6};
+  --el-color-info-light-7: #{$--el-color-info-light-7};
+  --el-color-info-light-8: #{$--el-color-info-light-8};
+  --el-color-info-light-9: #{$--el-color-info-light-9};
+  --el-color-warning: #{$--el-color-warning};
+  --el-color-warning-light-1: #{$--el-color-warning-light-1};
+  --el-color-warning-light-2: #{$--el-color-warning-light-2};
+  --el-color-warning-light-3: #{$--el-color-warning-light-3};
+  --el-color-warning-light-4: #{$--el-color-warning-light-4};
+  --el-color-warning-light-5: #{$--el-color-warning-light-5};
+  --el-color-warning-light-6: #{$--el-color-warning-light-6};
+  --el-color-warning-light-7: #{$--el-color-warning-light-7};
+  --el-color-warning-light-8: #{$--el-color-warning-light-8};
+  --el-color-warning-light-9: #{$--el-color-warning-light-9};
+  --el-color-danger: #{$--el-color-danger};
+  --el-color-danger-light-1: #{$--el-color-danger-light-1};
+  --el-color-danger-light-2: #{$--el-color-danger-light-2};
+  --el-color-danger-light-3: #{$--el-color-danger-light-3};
+  --el-color-danger-light-4: #{$--el-color-danger-light-4};
+  --el-color-danger-light-5: #{$--el-color-danger-light-5};
+  --el-color-danger-light-6: #{$--el-color-danger-light-6};
+  --el-color-danger-light-7: #{$--el-color-danger-light-7};
+  --el-color-danger-light-8: #{$--el-color-danger-light-8};
+  --el-color-danger-light-9: #{$--el-color-danger-light-9};
+  --bg-topBar: #{$--bg-topBar};
+  --bg-menuBar: #{$--bg-menuBar};
+  --bg-columnsMenuBar: #{$--bg-columnsMenuBar};
+  --bg-topBarColor: #{$--bg-topBarColor};
+  --bg-menuBarColor: #{$--bg-menuBarColor};
+  --bg-columnsMenuBarColor: #{$--bg-columnsMenuBarColor};
+  --box-shadow: #{$--box-shadow};
+}
