@@ -1,7 +1,7 @@
 <template>
   <el-header>
     <div class="header">
-      <div class="title">医院挂号系统</div>
+      <h2 class="title">医院挂号系统</h2>
       <div class="user">
         <el-avatar
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
