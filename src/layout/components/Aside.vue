@@ -1,45 +1,47 @@
 <template>
   <el-aside width="200px">
     <el-scrollbar>
-      <el-menu default-active="2">
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon><location /></el-icon>
-            <span>Navigator One</span>
-          </template>
-          <el-menu-item-group title="Group One">
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item one</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group Two">
-            <el-menu-item index="1-3">item three</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>item four</template>
-            <el-menu-item index="1-4-1">item one</el-menu-item>
+      <el-menu
+        router
+        :default-active="defaultActive"
+        background-color="transparent"
+      >
+        <template v-for="val in menuList">
+          <el-sub-menu
+            :index="val.path"
+            v-if="val.children && val.children.length > 0"
+            :key="val.path"
+          >
+            <template #title>
+              <!-- <SvgIcon :name="val.meta.icon" /> -->
+              <span>{{ val.meta.title }}</span>
+            </template>
+            <SubItem :chil="val.children" />
           </el-sub-menu>
-        </el-sub-menu>
-        <el-menu-item index="2">
-          <el-icon><icon-menu /></el-icon>
-          <span>Navigator Two</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <el-icon><setting /></el-icon>
-          <span>Navigator Four</span>
-        </el-menu-item>
+          <el-menu-item :index="val.path" :key="val.path" v-else>
+            <!-- <SvgIcon :name="val.meta.icon" /> -->
+            <template #title>
+              <span>{{ val.meta.title }}</span>
+            </template>
+          </el-menu-item>
+        </template>
       </el-menu>
     </el-scrollbar>
   </el-aside>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onBeforeMount, reactive, toRefs } from "vue";
 import {
   Location,
   Document,
   Menu as IconMenu,
   Setting,
 } from "@element-plus/icons-vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+import SubItem from "./subMenu.vue";
+
 export default defineComponent({
   name: "Aside",
   components: {
@@ -47,9 +49,33 @@ export default defineComponent({
     Document,
     Setting,
     IconMenu,
+    SubItem,
   },
   setup() {
-    return {};
+    const store = useStore();
+    const route = useRoute();
+    const state: any = reactive({
+      menuList: [],
+      defaultActive: route.path,
+      isCollapse: false,
+    });
+    // 设置/过滤路由（非静态路由/是否显示在菜单中）
+    const setFilterRoutes = () => {
+      state.menuList = filterRoutesFun(store.state.routesList);
+    };
+    // 路由过滤递归函数
+    const filterRoutesFun = (arr: Array<object>) => {
+      return arr.map((item: any) => {
+        item = Object.assign({}, item);
+        if (item.children) item.children = filterRoutesFun(item.children);
+        return item;
+      });
+    };
+    onBeforeMount(() => {
+      setFilterRoutes();
+      console.log(state.menuList);
+    });
+    return { ...toRefs(state) };
   },
 });
 </script>

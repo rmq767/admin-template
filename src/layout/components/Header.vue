@@ -15,7 +15,7 @@
               <el-dropdown-item command="1">Action 1</el-dropdown-item>
               <el-dropdown-item command="2">Action 2</el-dropdown-item>
               <el-dropdown-item command="3">Action 3</el-dropdown-item>
-              <el-dropdown-item command="4">Action 4</el-dropdown-item>
+              <el-dropdown-item command="out">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -27,14 +27,22 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ArrowDown } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router";
+import { Session } from "@/utils/session";
 export default defineComponent({
   name: "Header",
   components: {
     ArrowDown,
   },
   setup() {
+    const router = useRouter();
     const chooseMenu = (menu: string) => {
-      console.log(menu);
+      switch (menu) {
+        case "out":
+          Session.clear();
+          router.push("/login");
+          break;
+      }
     };
     return { chooseMenu };
   },

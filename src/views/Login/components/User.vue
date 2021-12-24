@@ -63,6 +63,7 @@
 </template>
 
 <script lang="ts">
+import { Session } from "@/utils/session";
 import { defineComponent, getCurrentInstance, reactive, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -84,7 +85,14 @@ export default defineComponent({
         signIn: false,
       },
     });
-    const onSignIn = () => {};
+    const onSignIn = () => {
+      let info = {
+        roles: ["admin"],
+      };
+      Session.set("token", "token");
+      Session.set("userInfo", info);
+      router.push({ name: "Home" });
+    };
     return { ...toRefs(state), onSignIn };
   },
 });
