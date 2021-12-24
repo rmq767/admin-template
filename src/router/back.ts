@@ -43,4 +43,5 @@ export function getBackEndControlRoutes() {
   // if (auth === 'admin') return getMenuAdmin();
   // 其它用户 test
   // else return getMenuTest();
+  return Promise.resolve({ data: "data" });
 }
