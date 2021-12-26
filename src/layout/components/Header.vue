@@ -12,10 +12,9 @@
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="1">Action 1</el-dropdown-item>
-              <el-dropdown-item command="2">Action 2</el-dropdown-item>
-              <el-dropdown-item command="3">Action 3</el-dropdown-item>
-              <el-dropdown-item command="out">退出登录</el-dropdown-item>
+              <el-dropdown-item command="userInfo">个人信息</el-dropdown-item>
+              <el-dropdown-item command="changePwd">修改密码</el-dropdown-item>
+              <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -29,6 +28,7 @@ import { defineComponent } from "vue";
 import { ArrowDown } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { Session } from "@/utils/session";
+import { ElMessage } from "element-plus";
 export default defineComponent({
   name: "Header",
   components: {
@@ -38,11 +38,36 @@ export default defineComponent({
     const router = useRouter();
     const chooseMenu = (menu: string) => {
       switch (menu) {
-        case "out":
-          Session.clear();
-          router.push("/login");
+        case "userInfo":
+          toUserInfoPage();
+          break;
+        case "changePwd":
+          toChangePwd();
+          break;
+        case "loginOut":
+          LoginOut();
           break;
       }
+    };
+    /**
+     * @description 跳转个人信息
+     */
+    const toUserInfoPage = () => {
+      router.push("/about");
+    };
+    /**
+     * @description 跳转个人信息
+     */
+    const toChangePwd = () => {
+      router.push("/changepassword");
+    };
+    /**
+     * @description 退出登录操作
+     */
+    const LoginOut = () => {
+      Session.clear();
+      router.push("/login");
+      ElMessage.success("退出登录！");
     };
     return { chooseMenu };
   },

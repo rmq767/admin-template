@@ -43,7 +43,7 @@
         </el-col>
         <el-col :span="8">
           <div class="login-content-code">
-            <span class="login-content-code-img">1234</span>
+            <VerifyCode :identifyCode="ruleForm.code"></VerifyCode>
           </div>
         </el-col>
       </el-row>
@@ -67,8 +67,13 @@ import { Session } from "@/utils/session";
 import { defineComponent, getCurrentInstance, reactive, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
+import VerifyCode from "@/components/VerifyCode.vue";
+import { ElMessage } from "element-plus";
 export default defineComponent({
   name: "LoginUser",
+  components: {
+    VerifyCode,
+  },
   setup() {
     const { proxy } = getCurrentInstance() as any;
     const store = useStore();
@@ -79,7 +84,7 @@ export default defineComponent({
       ruleForm: {
         userName: "admin",
         password: "123456",
-        code: "1234",
+        code: "7895",
       },
       loading: {
         signIn: false,
@@ -91,7 +96,8 @@ export default defineComponent({
       };
       Session.set("token", "token");
       Session.set("userInfo", info);
-      router.push({ name: "Home" });
+      router.push("/");
+      ElMessage.success("登录成功！");
     };
     return { ...toRefs(state), onSignIn };
   },

@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, reactive, toRefs } from "vue";
+import { defineComponent, onBeforeMount, reactive, toRefs, watch } from "vue";
 import {
   Location,
   Document,
@@ -65,15 +65,28 @@ export default defineComponent({
     };
     // 路由过滤递归函数
     const filterRoutesFun = (arr: Array<object>) => {
-      return arr.map((item: any) => {
-        item = Object.assign({}, item);
-        if (item.children) item.children = filterRoutesFun(item.children);
-        return item;
-      });
+      return arr
+        .filter((item: any) => !item.meta.isHide)
+        .map((item: any) => {
+          item = Object.assign({}, item);
+          if (item.children) item.children = filterRoutesFun(item.children);
+          return item;
+        });
     };
+    /**
+     * @description 监听路由变化，切换菜单选中
+     */
+    watch(
+      () => route.path,
+      () => {
+        state.defaultActive = route.path;
+      }
+    );
+    /**
+     * @description 加载前设置路由菜单
+     */
     onBeforeMount(() => {
       setFilterRoutes();
-      console.log(state.menuList);
     });
     return { ...toRefs(state) };
   },

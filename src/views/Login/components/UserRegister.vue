@@ -76,7 +76,7 @@
         </el-col>
         <el-col :span="8">
           <div class="login-content-code">
-            <span class="login-content-code-img">1234</span>
+            <VerifyCode :identifyCode="ruleForm.code"></VerifyCode>
           </div>
         </el-col>
       </el-row>
@@ -100,8 +100,12 @@ import { defineComponent, getCurrentInstance, reactive, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { userRegisterForm } from "./validateForm";
+import VerifyCode from "@/components/VerifyCode.vue";
 export default defineComponent({
   name: "LoginUserRegister",
+  components: {
+    VerifyCode,
+  },
   setup() {
     const { proxy } = getCurrentInstance() as any;
     const store = useStore();
@@ -116,7 +120,7 @@ export default defineComponent({
         phone: "",
         password: "",
         passwordAgain: "",
-        code: "",
+        code: "5642",
       },
       loading: {
         signIn: false,

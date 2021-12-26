@@ -5,6 +5,7 @@ import { RouteRecordRaw } from "vue-router";
  * title:名称，
  * roles:权限，
  * icon:图标
+ * isHide:是否侧边菜单隐藏
  */
 export const dynamicRoutes: Array<RouteRecordRaw> = [
   {
@@ -21,6 +22,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
           title: "首页",
           roles: ["admin", "common"],
           icon: "",
+          isHide: false,
         },
       },
       {
@@ -31,6 +33,18 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
           roles: ["admin", "common"],
           title: "关于我",
           icon: "",
+          isHide: false,
+        },
+      },
+      {
+        path: "/changepassword",
+        name: "ChangePassword",
+        component: () => import("@/views/ChangePassword.vue"),
+        meta: {
+          roles: ["admin", "common"],
+          title: "修改密码",
+          icon: "",
+          isHide: false,
         },
       },
     ],

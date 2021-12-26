@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-content">
       <div class="login-content-main">
-        <h4 class="login-content-title">攀枝花学院附属医院在线挂号系统</h4>
+        <h4 class="login-content-title">后台管理系统</h4>
         <transition name="el-zoom-in-center" mode="out-in">
           <div v-if="!isRegister">
             <h3 class="login-title">账号登录</h3>
