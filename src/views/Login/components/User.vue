@@ -69,6 +69,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import VerifyCode from "@/components/VerifyCode.vue";
 import { ElMessage } from "element-plus";
+import { initFrontEndControlRoutes } from "@/router/frond";
 export default defineComponent({
   name: "LoginUser",
   components: {
@@ -90,12 +91,16 @@ export default defineComponent({
         signIn: false,
       },
     });
-    const onSignIn = () => {
+    const onSignIn = async () => {
       let info = {
         roles: ["admin"],
       };
       Session.set("token", "token");
       Session.set("userInfo", info);
+      /**
+       * @description 添加动态路由
+       */
+      await initFrontEndControlRoutes();
       router.push("/");
       ElMessage.success("登录成功！");
     };

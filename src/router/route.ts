@@ -30,7 +30,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
         name: "About",
         component: () => import("@/views/About.vue"),
         meta: {
-          roles: ["admin", "common"],
+          roles: ["admin"],
           title: "关于我",
           icon: "",
           isHide: false,
