@@ -28,7 +28,8 @@ import { defineComponent } from "vue";
 import { ArrowDown } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { Session } from "@/utils/session";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
+import { resetRoute } from "@/router";
 export default defineComponent({
   name: "Header",
   components: {
@@ -65,9 +66,19 @@ export default defineComponent({
      * @description 退出登录操作
      */
     const LoginOut = () => {
-      Session.clear();
-      router.push("/login");
-      ElMessage.success("退出登录！");
+      ElMessageBox.confirm("确认退出?", "提示", {
+        confirmButtonText: "确认",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          Session.clear();
+          // 重置路由
+          resetRoute();
+          router.push("/login");
+          ElMessage.success("退出登录！");
+        })
+        .catch(() => {});
     };
     return { chooseMenu };
   },
